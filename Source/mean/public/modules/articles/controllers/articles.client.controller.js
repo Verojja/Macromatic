@@ -4,6 +4,9 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 	function($scope, $stateParams, $location, Authentication, Articles) {
 		$scope.authentication = Authentication;
 
+		var abilityName="What do you want to cast?";
+		var content="Syntax";
+
 		$scope.create = function() {
 			var article = new Articles({
 				title: this.title,
@@ -43,6 +46,11 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+		};
+
+		$scope.generate = function() {
+			syntax = "#showtooltip " + abilityName +
+					 "/n//cast " + abilityName
 		};
 
 		$scope.find = function() {
