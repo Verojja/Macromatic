@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('macros', [])
   .controller('MacrosController', function() {
     this.qty = 1;
@@ -9,7 +11,7 @@ angular.module('macros', [])
       EUR: 0.74,
       CNY: 6.09
     };
-    this.syntax="TEST TEST TEST TEST TEST";
+    this.syntax='TEST TEST TEST TEST TEST';
 
     this.total = function total(outCurr) {
       return this.convertCurrency(this.qty * this.cost, this.inCurr, outCurr);
@@ -18,6 +20,6 @@ angular.module('macros', [])
       return amount * this.usdToForeignRates[outCurr] / this.usdToForeignRates[inCurr];
     };
     this.pay = function pay() {
-      window.alert("Thanks!");
+      window.alert('Thanks!');
     };
   });

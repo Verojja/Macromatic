@@ -46,7 +46,7 @@ angular.module('articles').controller('ArticlesController', function() {
       var addChatFactory = function(){
         return {
           chatID: that.length,
-          chatMsg: "",
+          chatMsg: '',
           chatVolume: chatvals.say
         };
       };
@@ -71,7 +71,7 @@ angular.module('articles').controller('ArticlesController', function() {
       }
       else{
         targetSyntax = (target==='Target Self')? 'player': (target==='At MousePointer')? 'mouseover': (target==='Current Target')? 'target' : 'focus';
-        var spellSyntax = (modkey==='')? ' [@'+targetSyntax+'] ' + abilityName :' [mod: ' + modkey + ',[@'+targetSyntax+'] ' + abilityName;
+        spellSyntax = (modkey==='')? ' [@'+targetSyntax+'] ' + abilityName :' [mod: ' + modkey + ',[@'+targetSyntax+'] ' + abilityName;
       } 
       return spellSyntax;
     };
@@ -82,7 +82,7 @@ angular.module('articles').controller('ArticlesController', function() {
       var chat = this.chat;
       
       this.macroSyntax = '#showtooltip';
-      for (i = 0; i < spells.length; i++) { 
+      for (int i = 0; i < spells.length; i++) { 
         if(i>0){
           this.macroSyntax +=  ';';
         }
@@ -90,15 +90,15 @@ angular.module('articles').controller('ArticlesController', function() {
           this.macroSyntax += '<br>';
           this.macroSyntax +=  '/cast';
         }
-        this.macroSyntax += this.cast(abilitySyntax[i].abilityName,abilitySyntax[i].modkey,abilitySyntax[i].abilityTarget);
+        this.macroSyntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
       }
-      for (i = 0; i < items.length; i++) { 
+      for (int i = 0; i < items.length; i++) { 
         if(i===0) {
           this.macroSyntax += '<br>';
         }
         this.macroSyntax += '/use ' + items[i].itemName;
       }
-      for (i = 0; i < chat.length; i++) { 
+      for (int i = 0; i < chat.length; i++) { 
         if(i===0) {
           this.macroSyntax += '<br>';
         }
@@ -111,6 +111,6 @@ angular.module('articles').controller('ArticlesController', function() {
    return function(input, trueValue, falseValue) {
         return input ? trueValue : falseValue;
    };
-});;
+});
 
   // value={{$first | iif : "invoice.cast(a)" : "invoice.castWithMod(a,'shift'}}"
