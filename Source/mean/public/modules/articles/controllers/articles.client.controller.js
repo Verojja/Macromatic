@@ -12,6 +12,14 @@ angular.module('articles').controller('ArticlesController', function() {
       control: "shift"
     };
 
+    this.spellTarget = {
+      None: "",
+      self: "Target Self",
+      hover: "At MousePointer",
+      target: "Current Target"
+      focus: "Focus Target"
+    };
+
     this.volume = {
       say: "/say ",
       shout: "/yell ",
@@ -30,10 +38,12 @@ angular.module('articles').controller('ArticlesController', function() {
     this.addAbility = function() {
       var that = this.abilitySyntax;
       var mods = this.modChoices;
+      var targets = this.spellTarget;
       var abilityFactory = function(){
         return {
           abilityID: "" + that.length,
           abilityMod: mods.None,
+          abilityTarget: targets.None,
           abilityName: ""
         }
       }
