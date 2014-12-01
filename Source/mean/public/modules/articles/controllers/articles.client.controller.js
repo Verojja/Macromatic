@@ -80,30 +80,30 @@ angular.module('articles').controller('ArticlesController', function() {
       var spells = this.abilitySyntax;
       var items = this.itemUse;
       var chat = this.chat;
-      
-      this.macroSyntax = '#showtooltip';
+      var syntax = '#showtooltip';
       for (int i = 0; i < spells.length; i++) { 
         if(i>0){
-          this.macroSyntax +=  ';';
+          syntax +=  ';';
         }
         else{
-          this.macroSyntax += '<br>';
-          this.macroSyntax +=  '/cast';
+          syntax += '<br>';
+          syntax +=  '/cast';
         }
-        this.macroSyntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
+        syntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
       }
       for (int i = 0; i < items.length; i++) { 
         if(i===0) {
-          this.macroSyntax += '<br>';
+          syntax += '<br>';
         }
-        this.macroSyntax += '/use ' + items[i].itemName;
+        syntax += '/use ' + items[i].itemName;
       }
       for (int i = 0; i < chat.length; i++) { 
         if(i===0) {
-          this.macroSyntax += '<br>';
+          syntax += '<br>';
         }
-        this.macroSyntax += chat[i].chatVolume + ' ' + chat[i].chatMsg;
+        syntax += chat[i].chatVolume + ' ' + chat[i].chatMsg;
       }
+      this.macroSyntax = syntax;
     };
 
 
