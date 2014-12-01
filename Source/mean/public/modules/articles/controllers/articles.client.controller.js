@@ -4,6 +4,6 @@ angular.module('articles').controller('ArticlesController', function() {
     this.syntax = "Syntax";
    
     this.generateSyntax = function generateSyntax() {
-      this.syntax = "#showtooltip" + abilityName;
+      this.syntax = "#showtooltip" + this.abilityName;
     };
   });
