@@ -89,20 +89,20 @@ angular.module('articles').controller('ArticlesController', function() {
           syntax +=  ';';
         }
         else{
-          syntax += '/n';
+          syntax += '\n';
           syntax +=  '/cast';
         }
         syntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
       }
       for (i = 0; i < items.length; i++) { 
         if(i===0) {
-          syntax += '/n';
+          syntax += '\n';
         }
         syntax += '/use ' + items[i].itemName;
       }
       for (i = 0; i < chat.length; i++) { 
         if(i===0) {
-          syntax += '/n';
+          syntax += '\n';
         }
         syntax += chat[i].chatVolume + ' ' + chat[i].chatMsg;
       }
