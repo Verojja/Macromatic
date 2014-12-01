@@ -51,7 +51,10 @@
 			</span>
 		</div>
 		<br>
+		<span>
 		<button class="btn btn-primary btn-lg" ng-click="macroControl.generateMacroSyntax()">Generate</button>
+		<button class="btn btn-primary btn-lg" ng-click="macroControl.copyTheSyntax(macroControl.macroSyntax)">Copy</button>
+		</span>
 		<textarea type="text" cols="60" rows="10" ng-model="macroControl.macroSyntax" disabled="true"></textarea>
 		<br>
 		<br>

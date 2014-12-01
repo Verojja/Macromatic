@@ -78,6 +78,10 @@ angular.module('articles').controller('ArticlesController', function() {
       return spellSyntax;
     };
 
+    this.copyTheSyntax = function copyTheSyntax(text) {
+      window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+    }
+
     this.generateMacroSyntax = function generateSyntax() {
       var spells = this.abilitySyntax;
       var items = this.itemUse;
