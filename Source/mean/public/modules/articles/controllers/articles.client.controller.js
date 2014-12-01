@@ -77,34 +77,34 @@ angular.module('articles').controller('ArticlesController', function() {
     };
 
     this.generateMacroSyntax = function generateSyntax() {
-      // var spells = this.abilitySyntax;
-      // var items = this.itemUse;
-      // var chat = this.chat;
-      // var syntax = '#showtooltip';
-      // var i = 0;
-      // for (i = 0; i < spells.length; i++) { 
-      //   if(i>0){
-      //     syntax +=  ';';
-      //   }
-      //   else{
-      //     syntax += '<br>';
-      //     syntax +=  '/cast';
-      //   }
-      //   syntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
-      // }
-      // for (i = 0; i < items.length; i++) { 
-      //   if(i===0) {
-      //     syntax += '<br>';
-      //   }
-      //   syntax += '/use ' + items[i].itemName;
-      // }
-      // for (i = 0; i < chat.length; i++) { 
-      //   if(i===0) {
-      //     syntax += '<br>';
-      //   }
-      //   syntax += chat[i].chatVolume + ' ' + chat[i].chatMsg;
-      // }
-      // this.macroSyntax = syntax;
+      var spells = this.abilitySyntax;
+      var items = this.itemUse;
+      var chat = this.chat;
+      var syntax = '#showtooltip';
+      var i = 0;
+      for (i = 0; i < spells.length; i++) { 
+        if(i>0){
+          syntax +=  ';';
+        }
+        else{
+          syntax += '<br>';
+          syntax +=  '/cast';
+        }
+        syntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
+      }
+      for (i = 0; i < items.length; i++) { 
+        if(i===0) {
+          syntax += '<br>';
+        }
+        syntax += '/use ' + items[i].itemName;
+      }
+      for (i = 0; i < chat.length; i++) { 
+        if(i===0) {
+          syntax += '<br>';
+        }
+        syntax += chat[i].chatVolume + ' ' + chat[i].chatMsg;
+      }
+      this.macroSyntax = syntax;
     };
 
 
