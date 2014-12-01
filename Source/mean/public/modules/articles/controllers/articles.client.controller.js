@@ -81,7 +81,7 @@ angular.module('articles').controller('ArticlesController', function() {
       var items = this.itemUse;
       var chat = this.chat;
       var syntax = '#showtooltip';
-      int i = 0;
+      var i = 0;
       for (i = 0; i < spells.length; i++) { 
         if(i>0){
           syntax +=  ';';
