@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('macros', [])
   .controller('MacrosController', function() {
     this.qty = 1;
