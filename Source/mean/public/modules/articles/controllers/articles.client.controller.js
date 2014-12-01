@@ -1,12 +1,20 @@
 'use strict';
 angular.module('articles').controller('ArticlesController', function() {
     this.abilitySyntax = [];
+    this.itemUse = [];
+    this.chat = [];
     this.macroSyntax = "#showtooltip";
     
     this.modChoices = {
+      None: "",
       alt: "alt",
       shift: "ctrl",
       control: "shift"
+    };
+
+    this.volume = {
+      say: "/say ",
+      shout: "/yell ",
     };
 
     this.generateMacroSyntax = function generateSyntax() {
@@ -21,13 +29,39 @@ angular.module('articles').controller('ArticlesController', function() {
 
     this.addAbility = function() {
       var that = this.abilitySyntax;
+      var mods = this.modChoices;
       var abilityFactory = function(){
         return {
           abilityID: that.length,
+          abilityMod: mods.None,
           abilityName: ""
         }
       }
-      this.abilitySyntax.push(abilityFactory());
+      that.push(abilityFactory());
+    };
+
+    this.addChat = function() {
+      var that = this.chat;
+      var chatvals = this.volume;
+      var addChatFactory = function(){
+        return {
+          chatID: that.length,
+          chatMsg: "",
+          chatVolume: chatvals.say
+        }
+      }
+      that.push(addChatFactory());
+    };
+
+    this.addItem = function() {
+      var that = this.itemUse;
+      var itemUseFactory = function(){
+        return {
+          itemID: that.length,
+          itemName: ""
+        }
+      }
+      that.push(itemUseFactory());
     };
 
     this.cast = function cast(abilityName) {
