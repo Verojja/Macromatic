@@ -65,8 +65,7 @@
 // 	}
 // ]);
 
-angular.module('articles', [])
-  .controller('ArticlesController', function() {
+angular.module('articles').controller('ArticlesController', function() {
     this.qty = 1;
     this.cost = 2;
     this.inCurr = 'EUR';
