@@ -1,0 +1,24 @@
+<section ng-app="macros" ng-controller="MacrosController as controller">
+  <div class="page-header">
+    <h1>Create a Macro</h1>
+  </div>
+  <div>
+    Ability Name: <input type="number" ng-model="controller.qty" required >
+  </div>
+  <div>
+    Costs: <input type="number" ng-model="controller.cost" required >
+    <select ng-model="controller.inCurr">
+      <option ng-repeat="c in controller.currencies">{{c}}</option>
+    </select>
+  </div>
+  <div>
+    <b>Total:</b>
+    <span ng-repeat="c in controller.currencies">
+      {{invoice.total(c) | currency:c}}
+    </span>
+    <button class="btn" ng-click="controller.pay()">Pay</button>
+  </div>
+  <div>
+      <textarea name="syntax" ng-model="controller.syntax" cols="30" rows="10" disabled="true"></textarea>
+  </div>
+</section>
