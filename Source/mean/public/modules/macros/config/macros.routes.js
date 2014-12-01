@@ -11,7 +11,7 @@ angular.module('macros').config(['$stateProvider',
 		}).
 		state('createArticle', {
 			url: '/macros/create',
-			templateUrl: 'modules/macros/views/macros.create.html'
+			templateUrl: 'modules/macros/views/macro.create.html'
 		}).
 		state('viewArticle', {
 			url: '/articles/:articleId',
