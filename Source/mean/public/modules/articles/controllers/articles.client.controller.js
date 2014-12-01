@@ -16,7 +16,7 @@ angular.module('articles').controller('ArticlesController', function() {
       None: "",
       self: "Target Self",
       hover: "At MousePointer",
-      target: "Current Target"
+      target: "Current Target",
       focus: "Focus Target"
     };
 
