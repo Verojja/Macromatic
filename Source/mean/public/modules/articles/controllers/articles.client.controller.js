@@ -3,26 +3,26 @@ angular.module('articles').controller('ArticlesController', function() {
     this.abilitySyntax = [];
     this.itemUse = [];
     this.chat = [];
-    this.macroSyntax = "#showtooltip";
+    this.macroSyntax = '#showtooltip';
     
     this.modChoices = {
-      None: "",
-      alt: "alt",
-      shift: "ctrl",
-      control: "shift"
+      None: '',
+      alt: 'alt',
+      shift: 'ctrl',
+      control: 'shift'
     };
 
     this.spellTarget = {
-      None: "",
-      self: "Target Self",
-      hover: "At MousePointer",
-      target: "Current Target",
-      focus: "Focus Target"
+      None: '',
+      self: 'Target Self',
+      hover: 'At MousePointer',
+      target: 'Current Target',
+      focus: 'Focus Target'
     };
 
     this.volume = {
-      say: "/say ",
-      shout: "/yell ",
+      say: '/say ',
+      shout: '/yell '
     };
 
     this.addAbility = function() {
@@ -31,12 +31,12 @@ angular.module('articles').controller('ArticlesController', function() {
       var targets = this.spellTarget;
       var abilityFactory = function(){
         return {
-          abilityID: "" + that.length,
+          abilityID: that.length,
           abilityMod: mods.None,
           abilityTarget: targets.None,
-          abilityName: ""
-        }
-      }
+          abilityName: ''
+        };
+      };
       that.push(abilityFactory());
     };
 
@@ -45,11 +45,11 @@ angular.module('articles').controller('ArticlesController', function() {
       var chatvals = this.volume;
       var addChatFactory = function(){
         return {
-          chatID: "" + that.length,
+          chatID: that.length,
           chatMsg: "",
           chatVolume: chatvals.say
-        }
-      }
+        };
+      };
       that.push(addChatFactory());
     };
 
@@ -58,20 +58,20 @@ angular.module('articles').controller('ArticlesController', function() {
       var itemUseFactory = function(){
         return {
           itemID: that.length,
-          itemName: ""
-        }
-      }
+          itemName: ''
+        };
+      };
       that.push(itemUseFactory());
     };
     
     this.cast = function cast(abilityName, modkey, target) {
       var spellSyntax, targetSyntax;
-      if(target===""){
-        spellSyntax = (modkey==="")? " " + abilityName :" [mod: " + modkey +"] " + abilityName;
+      if(target===''){
+        spellSyntax = (modkey==='')? ' ' + abilityName :' [mod: ' + modkey +'] ' + abilityName;
       }
       else{
-        targetSyntax = (target==="Target Self")? "player": (target==="At MousePointer")? "mouseover": (target==="Current Target")? "target" : "focus";
-        var spellSyntax = (modkey==="")? " [@"+targetSyntax+"] " + abilityName :" [mod: " + modkey + ",[@"+targetSyntax+"] " + abilityName;
+        targetSyntax = (target==='Target Self')? 'player': (target==='At MousePointer')? 'mouseover': (target==='Current Target')? 'target' : 'focus';
+        var spellSyntax = (modkey==='')? ' [@'+targetSyntax+'] ' + abilityName :' [mod: ' + modkey + ',[@'+targetSyntax+'] ' + abilityName;
       } 
       return spellSyntax;
     };
@@ -81,30 +81,32 @@ angular.module('articles').controller('ArticlesController', function() {
       var items = this.itemUse;
       var chat = this.chat;
       
-      this.macroSyntax = "#showtooltip";
+      this.macroSyntax = '#showtooltip';
       for (i = 0; i < spells.length; i++) { 
         if(i>0){
-          this.macroSyntax +=  ";";
+          this.macroSyntax +=  ';';
         }
         else{
-          this.macroSyntax += "<br>";
-          this.macroSyntax +=  "/cast";
+          this.macroSyntax += '<br>';
+          this.macroSyntax +=  '/cast';
         }
         this.macroSyntax += this.cast(abilitySyntax[i].abilityName,abilitySyntax[i].modkey,abilitySyntax[i].abilityTarget);
       }
       for (i = 0; i < items.length; i++) { 
         if(i===0) {
-          this.macroSyntax += "<br>";
+          this.macroSyntax += '<br>';
         }
-        this.macroSyntax += "/use " + items[i].itemName;
+        this.macroSyntax += '/use ' + items[i].itemName;
       }
       for (i = 0; i < chat.length; i++) { 
         if(i===0) {
-          this.macroSyntax += "<br>";
+          this.macroSyntax += '<br>';
         }
-        this.macroSyntax += chat[i].chatVolume + " " + chat[i].chatMsg;
+        this.macroSyntax += chat[i].chatVolume + ' ' + chat[i].chatMsg;
       }
     };
+
+
   }).filter('iif', function () {
    return function(input, trueValue, falseValue) {
         return input ? trueValue : falseValue;

@@ -16,7 +16,7 @@
 		<div>
 		  	<span ng-repeat="a in macroControl.abilitySyntax">
 		  		<div class="well">
-				  	Ability ID: <input ng-model="a.abilityID" type="text" disabled="true">
+				  	Ability ID: <input ng-model="a.abilityID" type="number" disabled="true">
 				  	Ability Mod: <select ng-model="a.abilityMod">
 								      <option ng-repeat="m in macroControl.modChoices">{{m}}</option>
 								    </select>
@@ -32,7 +32,7 @@
 		<div>
 		  	<span ng-repeat="c in macroControl.chat">
 		  		<div class="well">
-		  			Message ID: <input ng-model="c.chatID" type="text" disabled="true">
+		  			Message ID: <input ng-model="c.chatID" type="number" disabled="true">
 		  			Message Volume: <select ng-model="c.chatVolume">
 								      <option ng-repeat="v in macroControl.volume">{{v}}</option>
 								    </select>
