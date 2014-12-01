@@ -4,10 +4,10 @@
 	</div>
 	<div class="col-md-12">
 		<div>
-		    Quantity: <input type="number" ng-model="invoice.qty" required >
+		    AbilityName: <input type="text" ng-model="invoice.abilityName" required >
 		  </div>
 		  <div>
-		    Costs: <input type="number" ng-model="invoice.cost" required >
+		    Syntax: <input type="number" ng-model="invoice.cost" required >
 		    <select ng-model="invoice.inCurr">
 		      <option ng-repeat="c in invoice.currencies">{{c}}</option>
 		    </select>
@@ -17,8 +17,11 @@
 		    <span ng-repeat="c in invoice.currencies">
 		      {{invoice.total(c) | currency:c}}
 		    </span>
-		    <button class="btn" ng-click="invoice.pay()">Pay</button>
+		    <button class="btn" ng-click="invoice.generate()">Generate</button>
 		  </div>
+
+
+		<textarea type="text" cols="30" rows="10" ng-model="invoice.syntax" disabled="true"></textarea>
 
 
 		<!-- <form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
