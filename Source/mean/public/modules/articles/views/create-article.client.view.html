@@ -11,7 +11,8 @@
 		<div>
 		  <span ng-repeat="a in invoice.abilitySyntax">
 		  	<div class="well">
-		  	AbilityName: <input ng-model="invoice.abilitySyntax[a]" type="text" value={{$first | iif : "invoice.cast(a)" : "invoice.castWithMod(a,'shift'}}" size="30">
+		  	Ability ID: <input ng-model="a.abilityID" type="number" disables=true>
+		  	AbilityName: <input ng-model="a.abilityName" type="text" size="15">
 		  </div>
 		  </span>
 		 </div>

@@ -20,7 +20,15 @@ angular.module('articles').controller('ArticlesController', function() {
     };
 
     this.addAbility = function() {
-      this.abilitySyntax.push('');
+      var abilityFactory = function(){
+        return {
+          abilityID: function() {
+            return this.abilitySyntax.length;
+          };
+          abilityName: "";
+        }
+      }
+      this.abilitySyntax.push(abilityFactory());
     };
 
     this.cast = function cast(abilityName) {
@@ -35,3 +43,5 @@ angular.module('articles').controller('ArticlesController', function() {
         return input ? trueValue : falseValue;
    };
 });;
+
+  // value={{$first | iif : "invoice.cast(a)" : "invoice.castWithMod(a,'shift'}}"
