@@ -20,9 +20,10 @@ angular.module('articles').controller('ArticlesController', function() {
     };
 
     this.addAbility = function() {
+      var that = this.abilitySyntax;
       var abilityFactory = function(){
         return {
-          abilityID: abilitySyntax.length,
+          abilityID: that.length,
           abilityName: ""
         }
       }
