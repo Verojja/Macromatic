@@ -17,7 +17,7 @@
 		    <span ng-repeat="c in invoice.currencies">
 		      {{invoice.total(c) | currency:c}}
 		    </span>
-		    <button class="btn" ng-click="invoice.generate()">Generate</button>
+		    <button class="btn" ng-click="invoice.generateSyntax()">Generate</button>
 		  </div>
 
 
