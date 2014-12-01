@@ -25,16 +25,6 @@ angular.module('articles').controller('ArticlesController', function() {
       shout: "/yell ",
     };
 
-    this.generateMacroSyntax = function generateSyntax() {
-      this.macroSyntax = "#showtooltip" + "<br>";
-      for (i = 0; i < this.abilitySyntax.length; i++) { 
-        if(i>0){
-          this.macroSyntax +=  "; "
-        }
-        this.macroSyntax += abilitySyntax[i];
-      }
-    };
-
     this.addAbility = function() {
       var that = this.abilitySyntax;
       var mods = this.modChoices;
@@ -73,14 +63,48 @@ angular.module('articles').controller('ArticlesController', function() {
       }
       that.push(itemUseFactory());
     };
-
-    this.cast = function cast(abilityName) {
-      return "/cast " + abilityName;
+    
+    this.cast = function cast(abilityName, modkey, target) {
+      var spellSyntax, targetSyntax;
+      if(target===""){
+        spellSyntax = (modkey==="")? " " + abilityName :" [mod: " + modkey +"] " + abilityName;
+      }
+      else{
+        targetSyntax = (target==="Target Self") "player": (target==="At MousePointer") "mouseover": (target==="Current Target") "target" : "focus";
+        var spellSyntax = (modkey==="")? " [@"+targetSyntax+"] " + abilityName :" [mod: " + modkey + ",[@"+targetSyntax+"] " + abilityName;
+      } 
+      return spellSyntax;
     };
-    this.castWithMod = function castWithMod(abilityName, modkey) {
-      return "/cast [mod: " + modkey + "] " + abilityName;
-    };
 
+    this.generateMacroSyntax = function generateSyntax() {
+      var spells = this.abilitySyntax;
+      var items = this.itemUse;
+      var chat = this.chat;
+      
+      this.macroSyntax = "#showtooltip";
+      for (i = 0; i < spells.length; i++) { 
+        if(i>0){
+          this.macroSyntax +=  ";";
+        }
+        else{
+          this.macroSyntax += "<br>";
+          this.macroSyntax +=  "/cast";
+        }
+        this.macroSyntax += this.cast(abilitySyntax[i].abilityName,abilitySyntax[i].modkey,abilitySyntax[i].abilityTarget);
+      }
+      for (i = 0; i < items.length; i++) { 
+        if(i===0) {
+          this.macroSyntax += "<br>";
+        }
+        this.macroSyntax += "/use " + items[i].itemName;
+      }
+      for (i = 0; i < chat.length; i++) { 
+        if(i===0) {
+          this.macroSyntax += "<br>";
+        }
+        this.macroSyntax += chat[i].chatVolume + chat[i].chatMsg;
+      }
+    };
   }).filter('iif', function () {
    return function(input, trueValue, falseValue) {
         return input ? trueValue : falseValue;
