@@ -1,6 +1,6 @@
 'use strict';
 angular.module('articles').controller('ArticlesController', function() {
-    this.abilitySyntax = [""];
+    this.abilitySyntax = [];
     this.macroSyntax = "#showtooltip";
     
     this.modChoices = {
