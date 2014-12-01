@@ -1,3 +1,52 @@
-<section ng-controller="ArticlesController">
-	test
+<section data-ng-controller="ArticlesController as invoice">
+	<div class="page-header">
+		<h1>New Macro</h1>
+	</div>
+	<div class="col-md-12">
+		<div>
+		    Quantity: <input type="number" ng-model="invoice.qty" required >
+		  </div>
+		  <div>
+		    Costs: <input type="number" ng-model="invoice.cost" required >
+		    <select ng-model="invoice.inCurr">
+		      <option ng-repeat="c in invoice.currencies">{{c}}</option>
+		    </select>
+		  </div>
+		  <div>
+		    <b>Total:</b>
+		    <span ng-repeat="c in invoice.currencies">
+		      {{invoice.total(c) | currency:c}}
+		    </span>
+		    <button class="btn" ng-click="invoice.pay()">Pay</button>
+		  </div>
+
+
+		<!-- <form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
+					<label class="control-label" for="title">Title</label>
+					<div class="controls">
+						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+					</div>
+					<div class="controls">
+						Ability Name: <input name="abilityName" type="text" ng-model="ArticlesController.abilityName" id="abilityName" class="form-control">
+					</div>
+				</div>
+				<button class="btn btn-primary btn-lg" ng-click="ArticlesController.generate()">Generate Syntax</button>
+				</p>
+				<div class="form-group">
+					<label class="control-label" for="content">Content</label>
+					<div class="controls">
+						<textarea name="content" data-ng-model="ArticlesController.syntax" id="content" class="form-control" cols="30" rows="10" value=ArticlesController. disabled="true"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default" value="Save Macro for Later"> (Requires a login)
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form> -->
+	</div>
 </section>
