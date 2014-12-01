@@ -22,9 +22,7 @@ angular.module('articles').controller('ArticlesController', function() {
     this.addAbility = function() {
       var abilityFactory = function(){
         return {
-          abilityID: function() {
-            return this.abilitySyntax.length;
-          };
+          abilityID: abilitySyntax.length;
           abilityName: "";
         }
       }
