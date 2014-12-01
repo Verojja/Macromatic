@@ -65,9 +65,11 @@ angular.module('articles').controller('ArticlesController', function() {
     };
     
     this.cast = function cast(abilityName, modkey, target) {
+      var mod = this.modChoices;
+      var tar = this.spellTarget;
       var spellSyntax, targetSyntax;
-      if(target===''){
-        spellSyntax = (modkey==='')? ' ' + abilityName :' [mod: ' + modkey +'] ' + abilityName;
+      if(target===tar.None){
+        spellSyntax = (modkey===mod.None)? ' ' + abilityName :' [mod: ' + modkey +'] ' + abilityName;
       }
       else{
         targetSyntax = (target==='Target Self')? 'player': (target==='At MousePointer')? 'mouseover': (target==='Current Target')? 'target' : 'focus';
@@ -87,20 +89,20 @@ angular.module('articles').controller('ArticlesController', function() {
           syntax +=  ';';
         }
         else{
-          syntax += '<br>';
+          syntax += '/n';
           syntax +=  '/cast';
         }
         syntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
       }
       for (i = 0; i < items.length; i++) { 
         if(i===0) {
-          syntax += '<br>';
+          syntax += '/n';
         }
         syntax += '/use ' + items[i].itemName;
       }
       for (i = 0; i < chat.length; i++) { 
         if(i===0) {
-          syntax += '<br>';
+          syntax += '/n';
         }
         syntax += chat[i].chatVolume + ' ' + chat[i].chatMsg;
       }
