@@ -48,7 +48,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			});
 		};
 
-		$scope.generate = function() {
+		this.generate = function() {
 			syntax = "#showtooltip " + abilityName +
 					 "/n//cast " + abilityName
 		};

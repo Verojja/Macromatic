@@ -11,10 +11,10 @@
 						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
 					</div>
 					<div class="controls">
-						Ability Name: <input name="abilityName" type="text" data-ng-model="ArticlesController.abilityName" id="abilityName" class="form-control">
+						Ability Name: <input name="abilityName" type="text" ng-model="ArticlesController.abilityName" id="abilityName" class="form-control">
 					</div>
 				</div>
-				<a class="btn btn-primary btn-lg" ng-click="ArticlesController.generate()">Generate Syntax</a>
+				<button class="btn btn-primary btn-lg" ng-click="ArticlesController.generate()">Generate Syntax</button>
 				</p>
 				<div class="form-group">
 					<label class="control-label" for="content">Content</label>
