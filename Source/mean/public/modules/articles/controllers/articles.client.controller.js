@@ -92,7 +92,7 @@ angular.module('articles').controller('ArticlesController', function() {
           syntax += '\n';
           syntax +=  '/cast';
         }
-        syntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
+        syntax += this.cast(spells[i].abilityName,spells[i].abilityMod,spells[i].abilityTarget);
       }
       for (i = 0; i < items.length; i++) { 
         if(i===0) {
