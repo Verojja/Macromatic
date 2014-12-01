@@ -1,9 +1,39 @@
-<section data-ng-controller="ArticlesController">
+<section data-ng-controller="ArticlesController as invoice">
 	<div class="page-header">
 		<h1>New Macro</h1>
 	</div>
 	<div class="col-md-12">
-		<form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+
+		  <b>Invoice:</b>
+		  <div>
+		    Quantity: <input type="number" ng-model="invoice.qty" required >
+		  </div>
+		  <div>
+		    Costs: <input type="number" ng-model="invoice.cost" required >
+		    <select ng-model="invoice.inCurr">
+		      <option ng-repeat="c in invoice.currencies">{{c}}</option>
+		    </select>
+		  </div>
+		  <div>
+		    <b>Total:</b>
+		    <span ng-repeat="c in invoice.currencies">
+		      {{invoice.total(c) | currency:c}}
+		    </span>
+		    <button class="btn" ng-click="invoice.pay()">Pay</button>
+		  </div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<!-- <form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
 					<label class="control-label" for="title">Title</label>
@@ -29,6 +59,6 @@
 					<strong data-ng-bind="error"></strong>
 				</div>
 			</fieldset>
-		</form>
+		</form> -->
 	</div>
 </section>
