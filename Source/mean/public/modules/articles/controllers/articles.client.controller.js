@@ -32,7 +32,7 @@ angular.module('articles').controller('ArticlesController', function() {
       var mods = this.modChoices;
       var abilityFactory = function(){
         return {
-          abilityID: that.length,
+          abilityID: "" + that.length,
           abilityMod: mods.None,
           abilityName: ""
         }
@@ -45,7 +45,7 @@ angular.module('articles').controller('ArticlesController', function() {
       var chatvals = this.volume;
       var addChatFactory = function(){
         return {
-          chatID: that.length,
+          chatID: "" + that.length,
           chatMsg: "",
           chatVolume: chatvals.say
         }
@@ -57,7 +57,7 @@ angular.module('articles').controller('ArticlesController', function() {
       var that = this.itemUse;
       var itemUseFactory = function(){
         return {
-          itemID: that.length,
+          itemID: "" + that.length,
           itemName: ""
         }
       }
