@@ -81,7 +81,8 @@ angular.module('articles').controller('ArticlesController', function() {
       var items = this.itemUse;
       var chat = this.chat;
       var syntax = '#showtooltip';
-      for (int i = 0; i < spells.length; i++) { 
+      int i = 0;
+      for (i = 0; i < spells.length; i++) { 
         if(i>0){
           syntax +=  ';';
         }
@@ -91,13 +92,13 @@ angular.module('articles').controller('ArticlesController', function() {
         }
         syntax += this.cast(spells[i].abilityName,spells[i].modkey,spells[i].abilityTarget);
       }
-      for (int i = 0; i < items.length; i++) { 
+      for (i = 0; i < items.length; i++) { 
         if(i===0) {
           syntax += '<br>';
         }
         syntax += '/use ' + items[i].itemName;
       }
-      for (int i = 0; i < chat.length; i++) { 
+      for (i = 0; i < chat.length; i++) { 
         if(i===0) {
           syntax += '<br>';
         }
