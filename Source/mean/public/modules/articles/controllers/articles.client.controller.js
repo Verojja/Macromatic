@@ -57,7 +57,7 @@ angular.module('articles').controller('ArticlesController', function() {
       var that = this.itemUse;
       var itemUseFactory = function(){
         return {
-          itemID: "" + that.length,
+          itemID: that.length,
           itemName: ""
         }
       }
