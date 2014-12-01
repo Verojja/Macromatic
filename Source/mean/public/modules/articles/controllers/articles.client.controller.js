@@ -4,8 +4,8 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 	function($scope, $stateParams, $location, Authentication, Articles) {
 		$scope.authentication = Authentication;
 
-		var abilityName="What do you want to cast?";
-		var content="Syntax";
+		this.abilityName="What do you want to cast?";
+		this.syntax="Syntax";
 
 		$scope.create = function() {
 			var article = new Articles({
