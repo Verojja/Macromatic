@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('macros').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles',
+angular.module('macros').controller('MacrosController', ['$scope', '$stateParams', '$location', 'Authentication', 'Macros',
 	function($scope, $stateParams, $location, Authentication, Articles) {
 		$scope.authentication = Authentication;
 

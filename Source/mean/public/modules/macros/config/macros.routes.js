@@ -5,21 +5,21 @@ angular.module('macros').config(['$stateProvider',
 	function($stateProvider) {
 		// Articles state routing
 		$stateProvider.
-		state('listArticles', {
+		state('listMacros', {
 			url: '/articles',
-			templateUrl: 'modules/articles/views/list-articles.client.view.html'
+			templateUrl: 'modules/macros/views/list-macros.view.html'
 		}).
-		state('createArticle', {
-			url: '/articles/create',
-			templateUrl: 'modules/articles/views/create-article.client.view.html'
+		state('createMacro', {
+			url: '/macros/create',
+			templateUrl: 'modules/macros/views/create-macro.view.html'
 		}).
-		state('viewArticle', {
-			url: '/articles/:articleId',
-			templateUrl: 'modules/articles/views/view-article.client.view.html'
+		state('viewMacro', {
+			url: '/macros/:macroId',
+			templateUrl: 'modules/macros/views/view-macro.view.html'
 		}).
-		state('editArticle', {
-			url: '/articles/:articleId/edit',
-			templateUrl: 'modules/articles/views/edit-article.client.view.html'
+		state('editMacro', {
+			url: '/macros/:macroId/edit',
+			templateUrl: 'modules/macros/views/edit-macro.view.html'
 		});
 	}
 ]);
