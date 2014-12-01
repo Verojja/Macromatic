@@ -70,7 +70,7 @@ angular.module('articles').controller('ArticlesController', function() {
         spellSyntax = (modkey==="")? " " + abilityName :" [mod: " + modkey +"] " + abilityName;
       }
       else{
-        targetSyntax = (target==="Target Self") "player": (target==="At MousePointer") "mouseover": (target==="Current Target") "target" : "focus";
+        targetSyntax = (target==="Target Self")? "player": (target==="At MousePointer")? "mouseover": (target==="Current Target")? "target" : "focus";
         var spellSyntax = (modkey==="")? " [@"+targetSyntax+"] " + abilityName :" [mod: " + modkey + ",[@"+targetSyntax+"] " + abilityName;
       } 
       return spellSyntax;
@@ -102,7 +102,7 @@ angular.module('articles').controller('ArticlesController', function() {
         if(i===0) {
           this.macroSyntax += "<br>";
         }
-        this.macroSyntax += chat[i].chatVolume + chat[i].chatMsg;
+        this.macroSyntax += chat[i].chatVolume + " " + chat[i].chatMsg;
       }
     };
   }).filter('iif', function () {
